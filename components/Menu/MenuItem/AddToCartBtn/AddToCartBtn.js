@@ -4,7 +4,7 @@ export default function AddToCartBtn() {
   return (
     <div className={s.container}>
       <div className={s.order_btn}>
-        <button>Ordenar {">"} </button>
+        <button>Ordenar</button>
       </div>
       <p>1</p>
       <div className={s.quantity_btn_container}>

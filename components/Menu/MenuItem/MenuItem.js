@@ -6,10 +6,10 @@ export default function MenuItem({ pizza }) {
   return (
     <article className={s.container}>
       <div className={s.img_container}>
-        <Image src="/pizza.png" width="300" height="300" />
+        <Image src="/pizza.png" width="300" height="300" objectFit="cover" />
       </div>
       <div className={s.product_info}>
-        <p className={s.name}>{pizza.name}</p>
+        <h3 className={s.name}>{pizza.name}</h3>
         <p>{pizza.description}</p>
         <p className={s.price}>
           {new Intl.NumberFormat("es-AR", {
