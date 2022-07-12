@@ -12,9 +12,10 @@ datasource db {
 
 
 model Pizza {
-  id           String     @default(cuid()) @id
-  name         String
-  price        Int
-  stock        Int         @default(30)
-  available    Boolean     @default(true)
+  id             String     @default(cuid()) @id
+  name           String
+  description    String
+  price          Int
+  stock          Int         @default(30)
+  available      Boolean     @default(true)
 }

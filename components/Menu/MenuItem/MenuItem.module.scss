@@ -1,0 +1,39 @@
+@import "../../../styles/app.scss";
+
+.container {
+  margin: 1rem;
+  width: 300px;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  //   background-color: #451811;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // row-gap: 1rem;
+
+  .img_container {
+    height: 300px;
+    width: 300px;
+  }
+
+  .product_info {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    .name {
+      display: inline-block;
+      text-align: center;
+      padding: 0.4rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      background-color: $m-white;
+      color: $m-black;
+    }
+
+    .price {
+      text-align: end;
+    }
+  }
+}

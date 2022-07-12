@@ -1,4 +1,7 @@
 .container {
   background-color: rgb(24, 24, 24);
   color: rgb(231, 231, 231);
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
