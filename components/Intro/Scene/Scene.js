@@ -201,22 +201,7 @@ const Frame = () => {
     return (angle * Math.PI) / 180;
   };
 
-  const { orientation, requestAccess, revokeAccess, error } =
-    useDeviceOrientation();
-
-  const orientationInfo = orientation && (
-    <ul>
-      <li>
-        ɑ: <code>{orientation.alpha}</code>
-      </li>
-      <li>
-        β: <code>{orientation.beta}</code>
-      </li>
-      <li>
-        γ: <code>{orientation.gamma}</code>
-      </li>
-    </ul>
-  );
+  
 
   useFrame((state) => {
     if (!!orbitControlsRef.current) {
@@ -238,7 +223,6 @@ const Frame = () => {
 
   return (
     <>
-      {orientationInfo}
       <PerspectiveCamera makeDefault position={[2, 3, 0]} />
       <ambientLight intensity={1.25} />
       <directionalLight position={[-2, 5, 2]} intensity={0.4} />
