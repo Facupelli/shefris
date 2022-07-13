@@ -15,6 +15,10 @@ export default function Intro() {
   const { orientation, requestAccess, revokeAccess, error } =
     useDeviceOrientation();
 
+  useEffect(() => {
+    requestAccess()
+  })
+
   const orientationInfo = orientation && (
     <ul>
       <li>
