@@ -18,17 +18,29 @@ export default function Scene() {
 }
 
 const Frame = () => {
-  const orbitControlsRef = useRef(null)
+  const orbitControlsRef = useRef(null);
+
+  const angleToRadians = (angle) => {
+    return (angle * Math.PI) / 180;
+  };
 
   useFrame((state) => {
-    // console.log(state.mouse)
+    if (!!orbitControlsRef.current) {
+      const { x, y } = state.mouse;
+
+      orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(45));
+      orbitControlsRef.current.setPolarAngle(
+        (y + 0.5) * angleToRadians(90 - 30)
+      );
+      orbitControlsRef.current.update();
+    }
   });
 
   useEffect(() => {
-    if(!!orbitControlsRef.current){
-      console.log(orbitControlsRef.current)
+    if (!!orbitControlsRef.current) {
+      console.log(orbitControlsRef.current);
     }
-  },[orbitControlsRef.current])
+  }, [orbitControlsRef.current]);
 
   return (
     <>
