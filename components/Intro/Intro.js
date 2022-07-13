@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import ItalyFlagIcon from "../../icons/ItalyFlagIcon";
 import { useDeviceOrientation } from "../../hooks/useDeviceOrientation";
+import { useEffect } from "react";
 
 import s from "./Intro.module.scss";
 
