@@ -6,7 +6,7 @@ export default function MenuItem({ pizza }) {
   return (
     <article className={s.container}>
       <div className={s.img_container}>
-        <Image src="/pizza.png" width="300" height="300" objectFit="cover" />
+        <Image src="/pizza.png" width="300" height="300" objectFit="cover" alt="pizza" />
       </div>
       <div className={s.product_info}>
         <h3 className={s.name}>{pizza.name}</h3>

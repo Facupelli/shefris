@@ -4,7 +4,7 @@ import s from "./Nav.module.scss";
 export default function Nav() {
   return (
     <nav className={s.container}>
-      <p>SHEFRI'S</p>
+      <p>SHEFRIS</p>
       <div className={s.links_wrapper}>
         <CartIcon />
       </div>

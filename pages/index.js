@@ -1,9 +1,10 @@
 import prisma from "../lib/prisma";
 import Head from "next/head";
-import Image from "next/image";
-import Intro from "../components/Intro/Intro";
-import Nav from "../components/Nav/Nav";
 import styles from "../styles/Home.module.scss";
+
+//COMPONENTS
+import Nav from "../components/Nav/Nav";
+import Intro from "../components/Intro/Intro";
 import Menu from "../components/Menu/Menu";
 import Footer from "../components/Footers/Footer";
 
