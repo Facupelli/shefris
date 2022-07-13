@@ -3,8 +3,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Intro from "../components/Intro/Intro";
 import Nav from "../components/Nav/Nav";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 import Menu from "../components/Menu/Menu";
+import Footer from "../components/Footers/Footer";
 
 export default function Home({ pizzas }) {
   return (
@@ -24,7 +25,7 @@ export default function Home({ pizzas }) {
         <Menu pizzas={pizzas} />
       </main>
 
-      <footer className={styles.footer}></footer>
+      <Footer />
     </div>
   );
 }

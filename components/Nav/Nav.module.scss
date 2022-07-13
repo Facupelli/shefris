@@ -1,0 +1,17 @@
+@import '../../styles/app.scss';
+
+.container{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: $s-black;
+    border-bottom: 1px solid $s-white;
+
+    >p{
+        font-weight: 600;
+    }
+
+    .links_wrapper{
+        margin-left: auto;
+    }
+}
