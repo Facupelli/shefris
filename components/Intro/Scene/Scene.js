@@ -201,15 +201,21 @@ const Frame = () => {
     return (angle * Math.PI) / 180;
   };
 
+  const { orientation, requestAccess, revokeAccess, error } =
+    useDeviceOrientation();
+
+  useEffect(() => {
+    requestAccess()
+  })
   
 
   useFrame((state) => {
     if (!!orbitControlsRef.current) {
       const { x, y } = state.mouse;
 
-      orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(45));
+      orbitControlsRef.current.setAzimuthalAngle(-orientation.alpha * angleToRadians(45));
       orbitControlsRef.current.setPolarAngle(
-        (y + 0.5) * angleToRadians(90 - 30)
+        (orientation.beta + 0.5) * angleToRadians(90 - 30)
       );
       orbitControlsRef.current.update();
     }
