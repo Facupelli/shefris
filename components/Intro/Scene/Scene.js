@@ -17,6 +17,10 @@ export default function Scene() {
   );
 }
 
+const Zoom = () => {
+  const {zoom} = useControls
+}
+
 const Frame = () => {
   const orbitControlsRef = useRef(null);
 
@@ -47,7 +51,7 @@ const Frame = () => {
       <PerspectiveCamera makeDefault position={[2, 3, 0]} />
       <ambientLight intensity={1.25} />
       <directionalLight position={[-2, 5, 2]} intensity={0.4} />
-      <OrbitControls ref={orbitControlsRef} />
+      <OrbitControls ref={orbitControlsRef} enablePan={false} enableZoom={false}/>
     </>
   );
 };

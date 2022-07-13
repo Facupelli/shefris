@@ -2,7 +2,6 @@ import MenuItem from "./MenuItem/MenuItem";
 import s from "./Menu.module.scss";
 
 export default function Menu({ pizzas }) {
-  console.log("PIZZAS", pizzas);
 
   return (
     <section className={s.container}>
