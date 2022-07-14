@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import ItalyFlagIcon from "../../icons/ItalyFlagIcon";
-import { useDeviceOrientation } from "../../hooks/useDeviceOrientation";
 import { useEffect } from "react";
 
 import s from "./Intro.module.scss";
@@ -13,27 +12,6 @@ const Scene = dynamic(
 );
 
 export default function Intro() {
-  const { orientation, requestAccess, revokeAccess, error } =
-    useDeviceOrientation();
-
-  useEffect(() => {
-    requestAccess()
-  })
-
-  const orientationInfo = orientation && (
-    <ul>
-      <li>
-        ɑ: <code>{orientation.alpha}</code>
-      </li>
-      <li>
-        β: <code>{orientation.beta}</code>
-      </li>
-      <li>
-        γ: <code>{orientation.gamma}</code>
-      </li>
-    </ul>
-  );
-
   return (
     <section className={s.container}>
       <Scene />
@@ -43,7 +21,6 @@ export default function Intro() {
       <h2 className={s.hashtag}>
         <ItalyFlagIcon /> Pizza Napoletana
       </h2>
-      {orientationInfo}
     </section>
   );
 }
