@@ -16,38 +16,26 @@ const Scene = dynamic(
 export default function Intro() {
   gsap.registerPlugin(ScrollTrigger);
   const introRef = useRef(null);
-
-  // useEffect(() => {
-  //   const element = introRef.current;
-  //   const title = element.querySelector(`.${s.hola_wrapper}`).children[0]
-  //   console.log("TITLE",title)
-  //   gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: element.querySelector(`.${s.hola_wrapper}`),
-  //       start: "top top",
-  //       pin: true,
-  //       end: "+=" + window.innerHeight * 3,
-  //       scrub: 0.5,
-  //     }
-  //   })
-  //     .to(title,{x:-100, opacity:0})
-  //     // .to(title,{x:100, opacity:0}, "<")
-  //     // .set(title, {opacity:1}, "<")
-  // },[])
+  const headerRef = useRef(null);
+  const secondHeaderRef = useRef(null);
 
   return (
     <section className={s.container} ref={introRef}>
       <div className={s.scene_wrapper}>
-        <Scene introRef={introRef} />
+        <Scene
+          introRef={introRef}
+          headerRef={headerRef}
+          secondHeaderRef={secondHeaderRef}
+        />
       </div>
-      <div className={s.header_wrapper}>
-        <h1 className={s.header}>
+      <div className={s.headers_wrapper}>
+        <h1 className={s.header} ref={headerRef}>
           LA PIZZA NO SE <span>MANCHA</span>
         </h1>
+        <h2 className={s.second_header} ref={secondHeaderRef}>
+          <ItalyFlagIcon /> Pizza Napoletana
+        </h2>
       </div>
-      <h2 className={s.hashtag}>
-        <ItalyFlagIcon /> Pizza Napoletana
-      </h2>
     </section>
   );
 }

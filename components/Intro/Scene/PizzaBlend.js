@@ -1,9 +1,35 @@
 import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { gsap } from "gsap";
+import { useFrame } from "@react-three/fiber";
 
 export default function Model({ ...props }) {
   const group = useRef();
+
+  const angleToRadians = (angle) => {
+    return (angle * Math.PI) / 180;
+  };
+
+  useFrame((state) => {
+    if (!!group.current) {
+      const { x, y } = state.mouse;
+
+      gsap.to(group.current.rotation, { x: -x });
+      gsap.to(group.current.rotation, { z: y });
+
+      // props.orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(45));
+      // props.orbitControlsRef.current.setPolarAngle(
+      //   (y + 0.5) * angleToRadians(90 - 30)
+      // );
+      // props.orbitControlsRef.current.update();
+    }
+  });
+
+  useEffect(() => {
+    if (!!props.orbitControlsRef.current) {
+      console.log("ORBITSCONTROL", props.orbitControlsRef.current);
+    }
+  }, [props.orbitControlsRef.current]);
 
   console.log("GROUP", group);
 
@@ -23,9 +49,18 @@ export default function Model({ ...props }) {
       .fromTo(
         element.current.scale,
         { x: 0.5, y: 0.5, z: 0.5 },
-        { x: 1, y: 1, z: 1 }
+        { x: 1.2, y: 1.2, z: 1.2 }
       )
-      // .to(element.current.rotation, { y: Math.PI * 2}, "<");
+      .to(element.current.position, { z: -2 })
+      .fromTo(
+        props.headerRef.current,
+        { scale: 0, opacity: 0.5 },
+        { scale: 1.3, opacity: 1 },
+        "<"
+      )
+      .to(props.headerRef.current, { scale: 1 })
+      .to(props.secondHeaderRef.current, { y: -4 });
+    // .to(props.orbitControlsRef.current.position, { y: 10, y: 0, z: 5 });
   }, []);
 
   const useDeviceSensors = () => {
