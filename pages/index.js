@@ -23,10 +23,10 @@ export default function Home({ pizzas }) {
 
       <main className={styles.main}>
         <Intro />
-        <Menu pizzas={pizzas} />
+        {/* <Menu pizzas={pizzas} /> */}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

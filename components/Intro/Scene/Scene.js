@@ -6,13 +6,12 @@ import PizzaBlend from "./PizzaBlend";
 
 import s from "./Scene.module.scss";
 
-export default function Scene() {
-
+export default function Scene({ introRef }) {
   return (
-    <Canvas className={s.canvas}>
+    <Canvas className={s.canvas} >
       <Frame />
       <Suspense fallback={null}>
-        <PizzaBlend />
+        <PizzaBlend introRef={introRef} />
       </Suspense>
     </Canvas>
   );
@@ -52,6 +51,7 @@ const Frame = () => {
         ref={orbitControlsRef}
         enablePan={false}
         enableZoom={false}
+        enableRotate={false}
       />
     </>
   );

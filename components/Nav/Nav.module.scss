@@ -1,6 +1,10 @@
 @import '../../styles/app.scss';
 
 .container{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 70px;
     display: flex;
     align-items: center;
     padding: 1rem;
