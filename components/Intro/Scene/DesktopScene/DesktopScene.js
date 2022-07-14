@@ -6,12 +6,16 @@ import {
   Segments,
 } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
-import Pizza from "./Pizza";
-import PizzaBlend from "./PizzaBlend";
+import PizzaBlend from "../PizzaBlend";
 
-import s from "./Scene.module.scss";
+import s from "./DesktopScene.module.scss";
 
-export default function Scene({ introRef, headerRef, secondHeaderRef }) {
+export default function DesktopScene({
+  introRef,
+  headerRef,
+  secondHeaderRef,
+  device,
+}) {
   const orbitControlsRef = useRef(null);
 
   return (
@@ -20,6 +24,7 @@ export default function Scene({ introRef, headerRef, secondHeaderRef }) {
 
       <Suspense fallback={null}>
         <PizzaBlend
+          device={device}
           introRef={introRef}
           orbitControlsRef={orbitControlsRef}
           headerRef={headerRef}
