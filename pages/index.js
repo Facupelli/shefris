@@ -1,7 +1,9 @@
+import * as THREE from "three";
 import prisma from "../lib/prisma";
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import shefrisLogoTra from "../public/shefrisLogoTra.png";
 
 //COMPONENTS
 import Nav from "../components/Nav/Nav";
@@ -9,8 +11,26 @@ import Intro from "../components/Intro/Intro";
 import Menu from "../components/Menu/Menu";
 import Footer from "../components/Footers/Footer";
 
+import styles from "../styles/Home.module.scss";
+
 export default function Home({ pizzas }) {
   const [device, setDevice] = useState("");
+  const [appLoading, setAppLoading] = useState(true);
+
+  const loadingManager = new THREE.LoadingManager();
+
+  loadingManager.onLoad = () => {
+    console.log("Loading complete!");
+    setAppLoading(false);
+  };
+
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden";
+  //   setTimeout(() => {
+  //     setAppLoading(false);
+  //     document.body.style.overflow = "auto";
+  //   }, 6000);
+  // }, []);
 
   useEffect(() => {
     const deviceType = () => {
@@ -27,9 +47,12 @@ export default function Home({ pizzas }) {
       return "desktop";
     };
 
-    setDevice(deviceType())
+    setDevice(deviceType());
   }, []);
 
+  if (appLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className={styles.container}>
@@ -44,7 +67,7 @@ export default function Home({ pizzas }) {
       </header>
 
       <main className={styles.main}>
-        <Intro device={device}/>
+        <Intro device={device} />
         {/* <Menu pizzas={pizzas} /> */}
       </main>
 
@@ -62,3 +85,20 @@ export async function getServerSideProps() {
     },
   };
 }
+
+const LoadingScreen = () => {
+  return (
+    <div className={styles.loading_screen}>
+      {/* <p>LOADING...</p> */}
+      <div>
+        <Image
+          src={shefrisLogoTra}
+          width="100"
+          height="100"
+          alt="logo"
+          objectFit="contain"
+        />
+      </div>
+    </div>
+  );
+};
