@@ -22,9 +22,9 @@ export default function PizzaMobile({ ...props }) {
     }
   };
 
-  useEffect(() => {
-    useDeviceSensors();
-  }, [group]);
+  useDeviceSensors();
+  // useEffect(() => {
+  // }, [group]);
 
   useEffect(() => {
     const element = group;
