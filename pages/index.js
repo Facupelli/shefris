@@ -15,7 +15,7 @@ import styles from "../styles/Home.module.scss";
 
 export default function Home({ pizzas }) {
   const [device, setDevice] = useState("");
-  const [appLoading, setAppLoading] = useState(true);
+  const [appLoading, setAppLoading] = useState(false);
 
   const loadingManager = new THREE.LoadingManager();
 

@@ -6,7 +6,8 @@ import {
   Segments,
 } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
-import PizzaBlend from "../PizzaBlend";
+import PizzaMobile from "../PizzaMobile";
+import PizzaDesktop from "../PizzaDesktop";
 
 import s from "./DesktopScene.module.scss";
 
@@ -23,13 +24,21 @@ export default function DesktopScene({
       <Frame orbitControlsRef={orbitControlsRef} />
 
       <Suspense fallback={null}>
-        <PizzaBlend
-          device={device}
-          introRef={introRef}
-          orbitControlsRef={orbitControlsRef}
-          headerRef={headerRef}
-          secondHeaderRef={secondHeaderRef}
-        />
+        {device === "desktop" ? (
+          <PizzaDesktop
+            introRef={introRef}
+            orbitControlsRef={orbitControlsRef}
+            headerRef={headerRef}
+            secondHeaderRef={secondHeaderRef}
+          />
+        ) : (
+          <PizzaMobile
+            introRef={introRef}
+            orbitControlsRef={orbitControlsRef}
+            headerRef={headerRef}
+            secondHeaderRef={secondHeaderRef}
+          />
+        )}
       </Suspense>
     </Canvas>
   );
