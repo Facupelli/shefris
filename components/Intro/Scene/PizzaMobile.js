@@ -44,7 +44,7 @@ export default function PizzaMobile({ ...props }) {
         { x: 0.5, y: 0.5, z: 0.5 },
         { x: 1, y: 1, z: 1 }
       )
-      .to(element.current.position, { x: 0.3 })
+      .to(element.current.position, { x: 0.5 })
       .fromTo(
         props.headerRef.current,
         { scale: 0, opacity: 0.5 },
